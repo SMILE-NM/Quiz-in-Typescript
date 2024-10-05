@@ -1,0 +1,87 @@
+/* Стиль для QuestionCard */
+.question-container {
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.question-container p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.question-container .question-number {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer-container button {
+  background: linear-gradient(
+    90deg,
+    #ffafbd,
+    #ffc3a0
+  ); /* Розово-оранжевый градиент */
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.answer-container button:hover {
+  background: linear-gradient(
+    90deg,
+    #ffc3a0,
+    #ffafbd
+  ); /* Градиент меняется при наведении */
+  transform: scale(1.05);
+}
+
+.answer-container .disabled {
+  background: linear-gradient(90deg, #d3d3d3, #a9a9a9);
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.answer-container span {
+  font-size: 1.1rem;
+}
+
+/* Градиенты для правильного и неправильного ответа */
+.answer-container .correct {
+  background: linear-gradient(90deg, #56ab2f, #a8e063); /* Зеленый градиент */
+  color: #fff;
+  border: none;
+}
+
+.answer-container .correct:hover {
+  background: linear-gradient(90deg, #a8e063, #56ab2f);
+  transform: scale(1.05);
+}
+
+.answer-container .incorrect {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Красный градиент */
+  color: #fff;
+  border: none;
+}
+
+.answer-container .incorrect:hover {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  transform: scale(1.05);
+}

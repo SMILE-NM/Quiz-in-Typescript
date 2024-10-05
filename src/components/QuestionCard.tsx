@@ -1,10 +1,14 @@
 import React from 'react';
+// Types
+import { AnswerObject } from '../App';
+
+import './questionCard.css';
 
 type Props = {
   question: string;
   answer: string[];
-  callback: any;
-  userAnswer: any;
+  callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  userAnswer: AnswerObject | undefined;
   questionNr: number;
   totalQuestions: number;
 };
@@ -17,16 +21,30 @@ const QuestionCard: React.FC<Props> = ({
   questionNr,
   totalQuestions,
 }) => {
+  console.log('my choice >>>', userAnswer?.answer);
+  console.log('Answer >>>', answer);
+
   return (
-    <div>
-      <p>
-        Question:{questionNr}/ {totalQuestions}
+    <div className="question-container">
+      <p className="question-number">
+        Question: {questionNr} / {totalQuestions}
       </p>
       <p dangerouslySetInnerHTML={{ __html: question }} />
-      <div>
+      <div className="answer-container">
         {answer.map((answer) => (
-          <div>
-            <button disabled={userAnswer} onClick={callback}>
+          <div key={answer}>
+            <button
+              disabled={!!userAnswer}
+              value={answer}
+              onClick={callback}
+              className={
+                userAnswer
+                  ? answer === userAnswer.correctAnswer
+                    ? 'correct'
+                    : ''
+                  : ''
+              }
+            >
               <span dangerouslySetInnerHTML={{ __html: answer }} />
             </button>
           </div>
